@@ -5,18 +5,18 @@ VOLUME /dev-database
 
 #### Packages ####
 RUN apk update && apk upgrade
-RUN apk add --update mysql \
-	mysql-client && \
-	rm -f /var/cache/apk/*
+RUN apk --update --no-cache add mysql \
+	mysql-client \
+	&& addgroup mysql mysql \
+	&& mkdir /scripts \
+	&& rm -rf /var/cache/apk/*
 
-RUN mkdir /run/mysqld
-ARG DB_ROOT_USER=root
-ARG DB_ROOT_PW=root
+VOLUME ["/var/lib/mysql"]
 
-RUN mysql_install_db --user=${DB_ROOT_USER} > /dev/null
+COPY ./mysql/startup.sh /scripts/startup.sh
 
-#[mysqld]
-#user = root
-#datadir = /app/mysql
-#port = 3306
-#log-bin = /app/mysql/mysql-bin
+RUN chmod +x /scripts/startup.sh
+
+EXPOSE 3306
+
+ENTRYPOINT ["/scripts/startup.sh"]

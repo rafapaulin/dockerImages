@@ -6,8 +6,7 @@ RUN apk --update --no-cache add \
         curl \
         git \
         shadow \
-        zsh \
-        nodejs
+        zsh
 #### End of Packages ####
 
 RUN git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git /root/apps/oh-my-zsh \
@@ -21,10 +20,10 @@ RUN git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git /root/apps
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 #### End of Composer ####
 
-#### Laravel ####
-RUN composer global require "laravel/installer"
-RUN ln -s $HOME/.composer/vendor/bin/laravel /bin/laravel
-#### End of Laravel ####
+#### Lumen ####
+RUN composer global require "laravel/lumen-installer"
+RUN ln -s $HOME/.composer/vendor/bin/lumen /bin/lumen
+#### End of Lumen ####
 
 ENV SHELL=/bin/zsh
 RUN chsh -s /bin/zsh
