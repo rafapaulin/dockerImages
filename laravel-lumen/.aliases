@@ -12,7 +12,7 @@
 	alias    gpl='git pull'
 	alias    grb='git rebase'
 	alias   grbm='git rebase master'
-	alias   grbc='git rebase continue'
+	alias   grbc='git rebase --continue'
 	alias   gpsf='git push --force origin/$(git_current_branch)'
 	alias    gfa='git fetch --all && git reset --hard origin/master'
 	alias   glog='git log --graph --decorate --format=format:"%C(dim white)== Commit [%Creset%C(red)%h%C(dim white)] ====================================================%n%n%C(bold blue)%s%Creset %C(auto)%d%n%b%n%C(bold dim yellow)Commited: %C(dim white)%ad %Creset%C(bold white)| %C(dim green)%ar%n  %C(bold dim yellow)Author: %C(dim white)%cn%n %C(bold dim yellow)Contact: %C(dim white)%ce%n%n%C(dim white)============================================= End of commit [%C(reset)%C(red)%h%C(dim white)] ==%n"'

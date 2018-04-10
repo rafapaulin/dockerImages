@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:edge
 
 #### Packages ####
 RUN apk update && apk upgrade

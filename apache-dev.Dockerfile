@@ -1,0 +1,1 @@
+FROM smtripat/alpine-apache-php-fpm:latest
