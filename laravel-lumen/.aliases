@@ -21,3 +21,7 @@
 	alias	pamc='php artisan make:controller'
 	alias	pamm='php artisan make:model -m'
 	alias    pas='php artisan serve --host=0'
+# [DOCKER]
+	alias    dcu='docker-compose up'
+	alias     di='docker images'
+	alias    dce='docker-compose exec'
