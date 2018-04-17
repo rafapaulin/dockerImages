@@ -36,6 +36,7 @@ RUN chsh -s /bin/zsh
 COPY ./laravel-lumen/.aliases /root/.aliases
 #### End of Other workstation configs ####
 
+
 WORKDIR /var/www
 
 CMD ["php-fpm7", "--allow-to-run-as-root", "-F"]
