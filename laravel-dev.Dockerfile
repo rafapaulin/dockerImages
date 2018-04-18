@@ -1,7 +1,5 @@
 FROM rafapaulin/php-fpm-dev:latest
 
-# ARG HOST_USER=hostuser
-
 #### Packages ####
 RUN apk update && apk upgrade
 RUN apk --update --no-cache add \
@@ -29,13 +27,14 @@ RUN composer global require "laravel/installer"
 RUN ln -s $HOME/.composer/vendor/bin/laravel /bin/laravel
 #### End of Laravel ####
 
+#### Define ZSH as default bash ####
 ENV SHELL=/bin/zsh
 RUN chsh -s /bin/zsh
+#### End of Define ZSH as default bash ####
 
 #### Other workstation configs ####
 COPY ./laravel-lumen/.aliases /root/.aliases
 #### End of Other workstation configs ####
-
 
 WORKDIR /var/www
 
