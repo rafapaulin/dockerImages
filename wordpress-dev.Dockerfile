@@ -7,6 +7,7 @@ RUN apk --update --no-cache add \
         git \
         shadow \
         zsh \
+        php7-simplexml \
         nodejs-npm
 #### End of Packages ####
 
@@ -23,20 +24,14 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 VOLUME /root/.composer/cache
 #### End of Composer ####
 
-#### Laravel ####
-RUN composer global require "laravel/installer"
-RUN ln -s $HOME/.composer/vendor/bin/laravel /bin/laravel
-#### End of Laravel ####
-
 #### Define ZSH as default bash ####
 ENV SHELL=/bin/zsh
 RUN chsh -s /bin/zsh
 #### End of Define ZSH as default bash ####
 
 #### Other workstation configs ####
-COPY ./laravel-lumen/.aliases /root/.aliases
+COPY ./general/.aliases /root/.aliases
 RUN mkdir -p /var/www/resources
-COPY ./laravel-lumen/webpack.mix.js.sample /var/www/resources/webpack.mix.js.sample
 #### End of Other workstation configs ####
 
 WORKDIR /var/www/html

@@ -14,9 +14,9 @@ COPY ./nginx/ssl.csr /etc/nginx/ssl/ssl.csr
 COPY ./nginx/ssl.key /etc/nginx/ssl/ssl.key
 
 
-RUN mkdir /var/www \
+RUN mkdir -p /var/www/html \
 	chown -p www-data:www-data /var/lib/nginx \
-	chown -p www-data:www-data /var/www
+	chown -p www-data:www-data /var/www/html
 
 EXPOSE 80
 

@@ -33,6 +33,6 @@ COPY ./phpfpm/php-fpm.conf /etc/php7/php-fpm.conf
 
 EXPOSE 9000
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 CMD ["php-fpm7", "--allow-to-run-as-root", "-F"]

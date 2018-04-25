@@ -19,6 +19,7 @@ RUN git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git /root/apps
 
 #### Composer ####
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+VOLUME /root/.composer/cache
 #### End of Composer ####
 
 #### Lumen ####
@@ -35,7 +36,7 @@ RUN chsh -s /bin/zsh
 COPY ./laravel-lumen/.aliases /root/.aliases
 #### End of Other workstation configs ####
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 CMD ["php-fpm7", "--allow-to-run-as-root", "-F"]
 
