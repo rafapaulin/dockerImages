@@ -7,7 +7,6 @@ RUN apk --update --no-cache add \
         git \
         shadow \
         zsh \
-        php7-simplexml \
         nodejs-npm
 #### End of Packages ####
 
@@ -32,6 +31,7 @@ RUN chsh -s /bin/zsh
 #### Other workstation configs ####
 COPY ./general/.aliases /root/.aliases
 RUN mkdir -p /var/www/resources
+COPY ./wordpress/ /var/www/resources
 #### End of Other workstation configs ####
 
 WORKDIR /var/www/html

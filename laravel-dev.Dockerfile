@@ -3,11 +3,8 @@ FROM rafapaulin/php-fpm-dev:latest
 #### Packages ####
 RUN apk update && apk upgrade
 RUN apk --update --no-cache add \
-        curl \
-        git \
         shadow \
-        zsh \
-        nodejs-npm
+        zsh 
 #### End of Packages ####
 
 RUN git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git /root/apps/oh-my-zsh \
